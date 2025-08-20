@@ -1,0 +1,301 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #0D0D0F !important;
+    color: #F5F5F5;
+}
+
+.container, .container-fluid, .row, .col {
+    background-color: #0D0D0F !important;
+}
+
+.navbar {
+    background-color: #e63737 !important;
+    border-bottom: 1px solid #1A1A1D;
+    width: 100vw !important;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.navbar .btn {
+    margin: 0px 5px;
+    gap: 10px;
+}
+
+.btn {
+    color: white !important;
+    border: 1px solid white !important;
+    transition: color 0.2s;
+}
+
+.navbar .btn:hover {
+    background-color: white !important;
+    color: #e63737 !important;
+}
+
+.container {
+    background-color: #393636 !important;
+    border-radius: 10px;
+    color: white;
+}
+
+.movie {
+    width: 220px;
+    height: 300px;
+    background-color: #e63737;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: 0.2s;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.poster {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.container.d-flex.flex-wrap {
+    min-height: 350px;
+}
+
+.movie:hover {
+    background-color: white;
+    color: #e63737;
+}
+
+.poster img {
+    width: 95%;
+    height: 95%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.movie-info {
+    margin-top: 10px;
+    overflow-wrap: anywhere;
+    width: 95%;
+    text-align: center;
+    color: inherit;
+}
+
+.movie-details .poster {
+    width: 300px;
+    height: 100%;
+}
+
+.movie-details .poster img {
+    object-fit: cover;
+}
+
+.accordion-item, .accordion-button {
+    background-color: #e63737 !important;
+    border-color: transparent !important;
+    color: white !important;
+}
+
+.accordion-button {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.accordion {
+    border-radius: 10px !important;
+}
+
+.movie-details {
+    background-color: #e63737 !important;
+    min-height: 300px;
+    width: 1270px !important;
+}
+
+.movie-main {
+    min-height: 500px;
+}
+
+.movie-main-info {
+    width: 40%;
+    height: 190px;
+    border-radius: 10px;
+    background-color: #ba2c2c !important;
+}
+
+.title {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: gold;
+}
+
+.movie-main-info p {
+    margin-left: 10px;
+}
+
+.admin-panel {
+    height: 50px;
+}
+
+.admin-controls a {
+    margin: 0px 10px;
+}
+
+.form {
+    background-color: #e63737 !important;
+    width: 700px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.form input {
+    border: none;
+    background-color: #ba2c2c !important;
+    color: white;
+    width: 300px;
+    height: 30px;
+    border-radius: 3px;
+}
+
+.form textarea {
+    width: 650px;
+    height: 130px;
+    border: none;
+    background-color: #ba2c2c !important;
+    color: white;
+    border-radius: 3px;
+}
+
+.form-label-tag {
+    font-weight: 600;
+}
+
+.movie-update {
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form .btn {
+    margin-bottom: 10px;
+}
+
+.user-logo img {
+    width: 200px;
+    height: 200px;
+}
+
+.user-info div input {
+    text-align: center;
+}
+
+.user-info div p {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: gold;
+    width: 100px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.user-info div {
+    display: flex;
+    justify-content: center;
+}
+
+.user-details {
+    width: 800px !important;
+    height: 400px !important;
+}
+
+.reviews {
+    height: 700px;
+    height: auto;
+}
+
+.user-review {
+    width: 1270px;
+    height: 270px;
+    background-color: #e63737 !important;
+    border-radius: 10px;
+}
+
+.user-review-info img {
+    width: 50px;
+    height: 50px;
+}
+
+.user-review-info {
+    background-color: #ba2c2c !important;
+    width: 300px;
+    height: 60px;
+    border-radius: 10px;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.user-review-text textarea {
+    border: none;
+    background-color: #ba2c2c !important;
+    color: white;
+    width: 98.5%;
+    height: 140px;
+    border-radius: 3px;
+}
+
+.user-review h4 {
+    margin-left: 10px;
+    color: #801f1f !important;
+}
+
+.user-review-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-review-buttons {
+    margin-right: 10px;
+}
+
+.user-review-details h3 {
+    text-decoration: none !important;
+    color: white;
+    transition: 0.2s;
+}
+
+.user-review-details h3:hover {
+    color: #4343fa;
+}
+
+.review-form {
+    width: 1270px;
+}
+
+.custom-review-label textarea {
+    width: 1230px;
+}
+
+.form-field {
+    min-height: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.error {
+    height: auto;
+    width: 500px;
+    overflow-wrap: anywhere;
+    text-align: center;
+}

@@ -1,0 +1,30 @@
+{% extends 'cinema/template.html' %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %}
+	<div class="container mt-3 text-center movie-update">
+		<h1>Register</h1>
+		<form method="post" enctype="multipart/form-data">
+			<div class="d-flex flex-column form align-items-center justify-content-center">
+				{% csrf_token %}
+				{% for field in form %}
+					<div class="mb-3 d-flex flex-column text-center">
+						<label class="form-label-tag">{{ field.label_tag }}</label>
+						<div class="form-field">
+							{{ field }}
+						</div>
+
+						{% for error in field.errors %}
+							<div class="error">
+								{{ error }}
+							</div>
+						{% endfor %}
+
+					</div>
+				{% endfor %}
+				<button type="submit" class="btn btn-success">Register</button>
+			</div>
+		</form>
+	</div>
+{% endblock %}

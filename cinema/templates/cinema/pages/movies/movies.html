@@ -1,0 +1,25 @@
+{% extends 'cinema/template.html' %}
+
+{% block title %} Movies {% endblock %}
+
+{% block content %}
+	<div class="container mt-3 d-flex flex-column align-items-center justify-content-center">
+		<h1>Movies</h1>
+		<div class="container d-flex flex-wrap">
+			{% if movies %}
+				{% for movie in movies %}
+					<a href="{% url 'movie_detail' movie.id %}" class="movie mx-3">
+						<div class="poster d-flex justify-content-center align-items-center">
+							<img src="{{ movie.thumbnail.url }}" alt="movie">
+						</div>
+						<div class="movie-info">
+							<h3>{{ movie.name }}</h3>
+						</div>
+					</a>
+				{% endfor %}
+			{% else %}
+				<h2>There aren't any availables movies to watch!</h2>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

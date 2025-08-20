@@ -1,0 +1,34 @@
+{% extends 'cinema/template.html' %}
+
+{% block title %} {{ user.username }} Profile {% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<div class="container mt-3 text-center movie-update">
+		<h1>{{ user.username }} Profile</h1>
+		<div class="container form d-flex justify-content-center align-items-center user-details">
+			<div class="user-logo mx-5">
+				<img src="{% static 'images/user_logo.png' %}" alt="">
+			</div>
+			<div class="user-info">
+				<div>
+					<p>Firstname</p>
+					<input type="text" value="{{ user.first_name }}" disabled readonly>
+				</div>
+				<div>
+					<p>Lastname</p>
+					<input type="text" value="{{ user.last_name }}" disabled readonly>
+				</div>
+				<div>
+					<p>Email</p>
+					<input type="text" value="{{ user.email }}" disabled readonly>
+				</div>
+				<div>
+					<p>Date joined</p>
+					<input type="text" value="{{ user.date_joined }}" disabled readonly>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

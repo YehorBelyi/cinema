@@ -1,0 +1,47 @@
+{% load static %}
+
+<form method="post" enctype="multipart/form-data">
+	<div class="d-flex flex-column form align-items-center justify-content-center review-form">
+		{% csrf_token %}
+		{% for field in form %}
+			<div class="mb-3 d-flex flex-column custom-review-label">
+				<label class="form-label-tag">{{ field.label_tag }}</label>
+				{{ field }}
+			</div>
+		{% endfor %}
+		<button type="submit" class="btn btn-success">Add Review</button>
+	</div>
+</form>
+{% for review in movie.review_set.all %}
+	<div class="user-review my-2">
+		<a href="{% url 'profile' review.user.id %}"
+		   class="user-review-info d-flex align-items-center justify-content-center m-2">
+			<img src="{% static 'images/user_logo.png' %}" alt="user_logo.png">
+			<div class="user-review-details">
+				<h3 style="">{{ review.user.username }}</h3>
+			</div>
+		</a>
+		<div class="user-review-text">
+			<textarea cols="30" rows="10" disabled readonly> {{ review.review }}</textarea>
+		</div>
+		<div class="user-review-controls">
+			<div class="user-review-review">
+				<h4 style="text-align: start">Reviewed on {{ review.review_date }}</h4>
+			</div>
+			<div class="user-review-buttons">
+				{% if review.user.id == user.id %}
+					<a href="{% url 'review_update' review.id %}" class="btn btn-warning">Edit</a>
+					<a href="{% url 'review_delete' review.id %}" class="btn btn-secondary">Delete</a>
+				{% elif role == "CEO" or role == "Employee" or role == "Staff" %}
+					{% if perms.cinema.change_review %}
+						<a href="{% url 'review_update' review.id %}" class="btn btn-warning">Edit</a>
+					{% endif %}
+
+					{% if perms.cinema.delete_review %}
+						<a href="{% url 'review_delete' review.id %}" class="btn btn-secondary">Delete</a>
+					{% endif %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endfor %}

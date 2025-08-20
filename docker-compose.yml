@@ -1,0 +1,6 @@
+services:
+  cinema:
+    build: .
+    container_name: "cinema"
+    ports:
+      - 8000:8000

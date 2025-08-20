@@ -1,0 +1,17 @@
+<nav class="navbar justify-content-between w-100">
+	<div class="navbar-controls">
+		<a href="{% url 'main' %}" class="btn">Main</a>
+		<a href="{% url 'movies_list' %}" class="btn">Movies</a>
+		{% if perms.cinema.add_movie %}
+			<a href="{% url 'add_movie' %}" class="btn">Add Movie</a>
+		{% endif %}
+	</div>
+	<div class="navbar-account d-flex d-row-reverse">
+		{% if not user.is_authenticated %}
+			<a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+		{% else %}
+			<a href="{% url 'profile' user.id %}" class="btn">Your Profile</a>
+			<a href="{% url 'logout' %}" class="btn btn-secondary">Logout</a>
+		{% endif %}
+	</div>
+</nav>

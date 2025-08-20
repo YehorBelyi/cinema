@@ -1,0 +1,42 @@
+<div class="movie-additional">
+	<div class="accordion" id="accordionFlushExample">
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						data-bs-target="#flush-collapseOne" aria-expanded="false"
+						aria-controls="flush-collapseOne">
+					Description
+				</button>
+			</h2>
+			<div id="flush-collapseOne" class="accordion-collapse collapse">
+				<div class="accordion-body">
+					{{ movie.description }}
+				</div>
+			</div>
+		</div>
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						data-bs-target="#flush-collapseTwo" aria-expanded="false"
+						aria-controls="flush-collapseTwo">
+					Sessions
+				</button>
+			</h2>
+			<div id="flush-collapseTwo" class="accordion-collapse collapse">
+				<div class="accordion-body">
+					{% if movie.session_set.all %}
+						{% for session in movie.session_set.all %}
+							{% if session.is_active %}
+								<button class="btn m-3">
+									{{ session.date|date:"M d" }}, {{ session.start_time }} - {{ session.end_time }}
+								</button>
+							{% endif %}
+						{% endfor %}
+					{% else %}
+						<p style="text-align: center;">There aren't any free sessions for the film!</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

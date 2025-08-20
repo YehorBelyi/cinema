@@ -1,0 +1,43 @@
+{% extends 'cinema/template.html' %}
+
+{% block title %} {{ movie.name }} {% endblock %}
+
+{% block content %}
+	{% if role == "CEO" or role == "Employee" or role == "Staff" %}
+		<div class="container mt-3 text-center admin-panel d-flex align-items-center justify-content-center">
+			<div class="admin-controls">
+				{% if perms.cinema.change_movie %}
+					<a href="{% url 'movie_update' movie.id %}" class="btn btn-warning">Edit</a>
+				{% endif %}
+
+				{% if perms.cinema.delete_movie %}
+					<a href="{% url 'movie_delete' movie.id %}" class="btn btn-danger">Delete</a>
+				{% endif %}
+
+				{% if perms.cinema.add_session %}
+					<a href="{% url 'session_create' movie.id %}" class="btn btn-primary">Create Session</a>
+				{% endif %}
+			</div>
+		</div>
+	{% endif %}
+	<div class="container mt-3 d-flex flex-column justify-content-start movie-main">
+		<div class="container movie-details d-flex flex-row align-items-center justify-content-center mt-3">
+			<div class="poster">
+				<img src="{{ movie.thumbnail.url }}" alt="movie">
+			</div>
+			<div class="movie-main-info">
+				<p><span class="title">Name:</span> {{ movie.name }}</p>
+				<p><span class="title">Company:</span> {{ movie.company }}</p>
+				<p><span class="title">Released on:</span> {{ movie.year_released }}</p>
+				<p><span class="title">Genre:</span> {{ movie.genre }}</p>
+				<p><span class="title">Length:</span> {{ movie.length }} minutes</p>
+			</div>
+		</div>
+		<div class="container w-90 mt-3">
+			{% include 'cinema/pages/movies/accordions.html' %}
+		</div>
+		<div class="container w-90 mt-3 text-center reviews d-flex flex-column align-items-center">
+			{% include 'cinema/pages/movies/reviews.html' %}
+		</div>
+	</div>
+{% endblock %}
