@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-*%legnwyzm&=$aep(w4&!3h&eaaupzei8o#p3qix2jl91ahyx4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["cinema-production-ab1d.up.railway.app"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://cinema-production-ab1d.up.railway.app",
+]
 
 
 # Application definition
